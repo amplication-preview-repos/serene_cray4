@@ -1,0 +1,129 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model PoliceStation {
+  id            String         @id @default(cuid())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  name          String?
+  address       String?
+  province      Province?      @relation(fields: [provinceId], references: [id])
+  provinceId    String?
+  outletSurveys OutletSurvey[]
+  surveys       Survey[]
+}
+
+model Outlet {
+  id            String         @id @default(cuid())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  name          String?
+  address       String?
+  province      Province?      @relation(fields: [provinceId], references: [id])
+  provinceId    String?
+  outletSurveys OutletSurvey[]
+}
+
+model OutletSurvey {
+  id              String         @id @default(cuid())
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  q1              String?
+  q2              String?
+  q3              String?
+  q4              String?
+  q5              String?
+  q6              String?
+  q7              String?
+  q8              String?
+  q9              String?
+  q10             String?
+  q11             String?
+  q12             String?
+  survey          Survey?        @relation(fields: [surveyId], references: [id])
+  surveyId        String?
+  outlet          Outlet?        @relation(fields: [outletId], references: [id])
+  outletId        String?
+  yesCount        Int?
+  noCount         Int?
+  policeStation   PoliceStation? @relation(fields: [policeStationId], references: [id])
+  policeStationId String?
+}
+
+model Province {
+  id             String          @id @default(cuid())
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  name           String?
+  users          User[]
+  outlets        Outlet[]
+  policeStations PoliceStation[]
+}
+
+model Survey {
+  id                        String                     @id @default(cuid())
+  createdAt                 DateTime                   @default(now())
+  updatedAt                 DateTime                   @updatedAt
+  completedAt               DateTime?
+  typeField                 String?
+  alcoholConsumptionSurveys AlcoholConsumptionSurvey[]
+  user                      User?                      @relation(fields: [userId], references: [id])
+  userId                    String?
+  outletSurveys             OutletSurvey[]
+  policeStation             PoliceStation?             @relation(fields: [policeStationId], references: [id])
+  policeStationId           String?
+}
+
+model AlcoholConsumptionSurvey {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  q1        String?
+  q2        String?
+  q3        String?
+  q4        String?
+  q5        String?
+  q6        String?
+  q7        String?
+  q8        String?
+  q9        String?
+  q10       String?
+  q11       String?
+  q12       String?
+  q13       String?
+  q14       String?
+  q15       String?
+  q16       String?
+  q17       String?
+  q18       String?
+  q19       String?
+  q20       String?
+  q21       String?
+  q22       String?
+  q23       String?
+  q24       String?
+  q25       String?
+  survey    Survey?  @relation(fields: [surveyId], references: [id])
+  surveyId  String?
+}
+
+model User {
+  id         String    @id @default(cuid())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  firstName  String?
+  lastName   String?
+  username   String    @unique
+  email      String?   @unique
+  password   String
+  roles      Json
+  province   Province? @relation(fields: [provinceId], references: [id])
+  provinceId String?
+  surveys    Survey[]
+}
