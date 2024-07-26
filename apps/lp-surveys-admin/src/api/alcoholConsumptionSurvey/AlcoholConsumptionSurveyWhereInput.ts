@@ -1,0 +1,33 @@
+import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { SurveyWhereUniqueInput } from "../survey/SurveyWhereUniqueInput";
+
+export type AlcoholConsumptionSurveyWhereInput = {
+  id?: StringFilter;
+  q1?: StringNullableFilter;
+  q2?: StringNullableFilter;
+  q3?: StringNullableFilter;
+  q4?: StringNullableFilter;
+  q5?: StringNullableFilter;
+  q6?: StringNullableFilter;
+  q7?: StringNullableFilter;
+  q8?: StringNullableFilter;
+  q9?: StringNullableFilter;
+  q10?: StringNullableFilter;
+  q11?: StringNullableFilter;
+  q12?: StringNullableFilter;
+  q13?: StringNullableFilter;
+  q14?: StringNullableFilter;
+  q15?: StringNullableFilter;
+  q16?: StringNullableFilter;
+  q17?: StringNullableFilter;
+  q18?: StringNullableFilter;
+  q19?: StringNullableFilter;
+  q20?: StringNullableFilter;
+  q21?: StringNullableFilter;
+  q22?: StringNullableFilter;
+  q23?: StringNullableFilter;
+  q24?: StringNullableFilter;
+  q25?: StringNullableFilter;
+  survey?: SurveyWhereUniqueInput;
+};

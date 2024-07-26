@@ -1,0 +1,33 @@
+import { SortOrder } from "../../util/SortOrder";
+
+export type AlcoholConsumptionSurveyOrderByInput = {
+  id?: SortOrder;
+  createdAt?: SortOrder;
+  updatedAt?: SortOrder;
+  q1?: SortOrder;
+  q2?: SortOrder;
+  q3?: SortOrder;
+  q4?: SortOrder;
+  q5?: SortOrder;
+  q6?: SortOrder;
+  q7?: SortOrder;
+  q8?: SortOrder;
+  q9?: SortOrder;
+  q10?: SortOrder;
+  q11?: SortOrder;
+  q12?: SortOrder;
+  q13?: SortOrder;
+  q14?: SortOrder;
+  q15?: SortOrder;
+  q16?: SortOrder;
+  q17?: SortOrder;
+  q18?: SortOrder;
+  q19?: SortOrder;
+  q20?: SortOrder;
+  q21?: SortOrder;
+  q22?: SortOrder;
+  q23?: SortOrder;
+  q24?: SortOrder;
+  q25?: SortOrder;
+  surveyId?: SortOrder;
+};
